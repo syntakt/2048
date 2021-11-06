@@ -37,6 +37,42 @@ term_clear( void )
   system("clear");
 }
 
+static void
+term_render( grid_t *_grid )
+{
+  int i, j, b;
+
+  printf( "SCORE: %d\n", _Score );
+
+  for ( i = 0; i < _grid->s; i++ ) {
+    for ( j = 0; j < _grid->s; j++ ) {
+      b = _grid->g[i * _grid->s + j];
+
+      if ( b > 0 )
+        printf( "%-*d|", 4, b );
+      else printf( "%*s", 5, "|" );
+    }
+
+    printf( "\n" );
+  }
+  
+  fflush( stdout );
+}
+
+static int
+term_input( )
+{
+  int in = getchar( );
+
+  switch ( in ) {
+  case 'i': return 0;
+  case 'j': return 1;
+  case 'k': return 2;
+  case 'l': return 3;
+  default:  return term_input( );
+  }
+}
+
 static int
 full( grid_t *_grid )
 {
@@ -127,42 +163,6 @@ move( grid_t *_grid, int _in )
 
   /* TODO: Fix, this don't work */
   return ( full( _grid ) && _Score == orig ) ? 1 : 0;
-}
-
-static void
-term_render( grid_t *_grid )
-{
-  int i, j, b;
-
-  printf( "SCORE: %d\n", _Score );
-
-  for ( i = 0; i < _grid->s; i++ ) {
-    for ( j = 0; j < _grid->s; j++ ) {
-      b = _grid->g[i * _grid->s + j];
-
-      if ( b > 0 )
-        printf( "%-*d|", 4, b );
-      else printf( "%*s", 5, "|" );
-    }
-
-    printf( "\n" );
-  }
-  
-  fflush( stdout );
-}
-
-static int
-term_input( )
-{
-  int in = getchar( );
-
-  switch ( in ) {
-  case 'i': return 0;
-  case 'j': return 1;
-  case 'k': return 2;
-  case 'l': return 3;
-  default:  return term_input( );
-  }
 }
 
 int
