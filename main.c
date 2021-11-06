@@ -78,7 +78,7 @@ full( grid_t *_grid )
 {
   int i;
 
-  for ( i = 0; i < _grid->s; i++ ) {
+  for ( i = 0; i < _grid->s * _grid->s; i++ ) {
     if ( _grid->g[i] == 0 )
       return 0;
   }
