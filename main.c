@@ -34,7 +34,7 @@ static int _Score = 0;
 static void
 term_clear( void )
 {
-  system("clear");
+  system( "clear" );
 }
 
 static void
@@ -171,7 +171,7 @@ main()
   grid_t grid;
   int stuck = 0;
 
-  grid.s = 12; /* Grid Scale */
+  grid.s = 4; /* Grid Scale */
   grid.g = calloc( sizeof( int ), grid.s * grid.s );
 
   srand( time( NULL ) );
