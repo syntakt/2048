@@ -168,7 +168,7 @@ move( grid_t *_grid, int _in )
 }
 
 int
-main()
+main( void )
 {
   grid_t grid;
   int stuck = 0;
