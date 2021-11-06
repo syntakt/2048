@@ -76,7 +76,7 @@ term_input( )
 static int
 full( grid_t *_grid )
 {
-  int i, s;
+  int i;
 
   for ( i = 0; i < _grid->s; i++ ) {
     if ( _grid->g[i] == 0 )
@@ -112,6 +112,8 @@ move_index( grid_t *_grid, int _in, int _j, int _k, int _a )
   case LEFT:  
   case RIGHT: return ( ( _k + _a ) + _grid->s * _j );
   }
+
+  return -1;
 }
 
 static int
