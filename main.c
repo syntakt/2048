@@ -156,7 +156,7 @@ move( grid_t *_grid, int _in )
         /* If the next cell is the same number, add the current cell into it */
         } else if ( *n == *c ) {
           *n += *c;
-          _Score += *c; 
+          _Score += ( *c * 2 ); 
           *c = 0;
         }
       }
